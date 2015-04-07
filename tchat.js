@@ -7,13 +7,11 @@ $(document).on("click","#ok",function(e){
     //alert(message);
     $.ajax({
         method:"POST",
-        url:"tchat.html",
+        url:"tchat.php",
         //data:{},
         success:function(r){
             //$("container").html($(r).find("container").html());
-            /*var html = "";
-            var toto = eval(r);
-            alert(toto);*/
+            //alert(r);
         }
     });
 });
