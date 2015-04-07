@@ -10,8 +10,7 @@ $(document).on("click","#ok",function(e){
         method:"POST",
         url:"tchat.php",
         data:{"message":message,
-            "user":user,
-            "id":id
+            "user":user
         },
         success:function(r){
             //alert(r);
