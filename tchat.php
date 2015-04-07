@@ -1,9 +1,5 @@
 <?php
-/*session_start();
-    if(empty($_SESSION)){
-        $_SESSION['id'] = 0;
-    }
-    $toto = array();*/
+    $toto = array();
     try{
         $db = new PDO('mysql:host=localhost;dbname=tchat','root','');
     } catch(PDOException $ex){
