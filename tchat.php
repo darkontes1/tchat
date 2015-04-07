@@ -10,9 +10,10 @@
     }
     
     if(isset($_REQUEST['user']) && isset($_REQUEST['message']) && !empty($_REQUEST['user']) && !empty($_REQUEST['message'])){
-        $query = 'INSERT INTO messages(user,message) VALUES (:user,:message)';
+        $query = 'INSERT INTO messages(user,ip,message) VALUES (:user,:ip,:message)';
         $data = $db->prepare($query);
         $data->bindValue('user',$_REQUEST['user'],PDO::PARAM_STR);
+        $data->bindValue('ip',$_SERVER["REMOTE_ADDR"],PDO::PARAM_STR);
         $data->bindValue('message',$_REQUEST['message'],PDO::PARAM_STR);
         $data->execute();
     }

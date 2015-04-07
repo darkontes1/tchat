@@ -26,15 +26,25 @@ $(document).on("click","#ok",function(e){
                     html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
                 }
                 $("#tchat").val(html);
+                $("#message").val("");
             }
         }
     });
 });
+
 //Empêcher l'utilisateur de remplir la textarea du tchat
 $(document).on("keypress","#tchat",function(e){
     e.preventDefault();
 });
+//Modifie la touche tab
+$(document).on("keydown","#message",function(e){
+    if(e.which == 9){
+        e.preventDefault();
+        $("#message").val($("#message").val()+"\t");
+    }
+});
 
+//Actualisation
 setInterval(function(){
     $.ajax({
         method:"POST",
