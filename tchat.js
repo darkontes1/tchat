@@ -14,6 +14,46 @@ $(document).on("click","#ok",function(e){
         },
         success:function(r){
             //alert(r);
+            var html = "";
+            var toto = eval(r);
+            //console.log(toto[1][7]['loginUser']);
+            if(toto.length==0){
+                console.log("PAS DE MESSAGES DANS LA BASE !");
+            }
+            else{
+                for(i=0;i<toto.length;i++){
+                    var d = new Date(toto[i]['date']);
+                    html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                }
+                $("#tchat").val(html);
+            }
         }
     });
 });
+//Empêcher l'utilisateur de remplir la textarea du tchat
+$(document).on("keypress","#tchat",function(e){
+    e.preventDefault();
+});
+
+setInterval(function(){
+    $.ajax({
+        method:"POST",
+        url:"tchat.php",
+        success:function(r){
+            //alert(r);
+            var html = "";
+            var toto = eval(r);
+            //console.log(toto[1][7]['loginUser']);
+            if(toto.length==0){
+                console.log("PAS DE MESSAGES DANS LA BASE !");
+            }
+            else{
+                for(i=0;i<toto.length;i++){
+                    var d = new Date(toto[i]['date']);
+                    html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                }
+                $("#tchat").val(html);
+            }
+        }
+    });
+},1500);
