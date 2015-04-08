@@ -1,4 +1,34 @@
+//Variable pour l'actualisation plus bas (truc)
 taille = 0;
+
+//Quand on click sur le bouton de connexion
+$(document).on("click","#co",function(e){
+    e.preventDefault();
+    //Récupère la variable du message à ajouter
+    var pseudo = $("#valueCo").val();
+    var pass = $("#passCo").val();
+    $.ajax({
+        method:"POST",
+        url:"verifco.php",
+        data:{"pseudo":pseudo,
+            "pass":pass
+        },
+        success:function(r){
+            $("#ok").trigger("click");
+        }
+    });
+});
+
+//Quand on click sur le bouton de deconnexion
+$(document).on("click","#deco",function(e){
+    e.preventDefault();
+    $.ajax({
+        method:"GET",
+        url:"verifco.php",
+        data:{"action":"deco"}
+    });
+});
+
 //Quand on click sur le bouton du formulaire "ok"
 $(document).on("click","#ok",function(e){
     //Supprime la fonction par défaut de l'event 
@@ -37,9 +67,18 @@ $(document).on("click","#ok",function(e){
 });
 
 //Empêcher l'utilisateur de remplir la textarea du tchat
-$(document).on("keypress","#tchat",function(e){
+function cancel (e){
     e.preventDefault();
-});
+}
+$(document)
+    .on("keydown","#tchat", cancel)
+    .on("keypress","#tchat", cancel)
+    .on("keyup","#tchat", cancel);
+$(document)
+    .on("keydown","#user", cancel)
+    .on("keypress","#user", cancel)
+    .on("keyup","#user", cancel);
+
 //Modifie la touche tab/shift+enter
 $(document).on("keydown","#message",function(e){
     //Fait une tabulation au lieu de changer de focus
@@ -79,8 +118,3 @@ function truc(){
 }
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(truc);
-
-//Actualisation
-/*setInterval(function(){
-    $("#ok").trigger("click");
-},1500);*/

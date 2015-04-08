@@ -15,3 +15,9 @@ body{
     border-radius: 10px 0 10px 0;
     box-shadow: inset -2px -2px 5px #AAA;
 }
+
+label{
+    display: block;
+    width: 80px;
+    float: left;
+}
