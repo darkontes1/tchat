@@ -1,0 +1,37 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>IRC</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="tchat.js"></script>
+    </head>
+    <body>
+        <form id="myform" method="post" action="index_pdo.php">
+        <?php
+            if($_SESSION['connect']==FALSE){
+        ?>
+            <label>login</label><input type="text" id="valueCo" name="valueCo" required>
+            <input type="submit" id="co" name="co" value="connection"/>
+        <?php
+            }
+            if($_SESSION['connect']==TRUE){
+        ?>
+            <div>Connecté sous : <?php //echo $_SESSION['login']; ?></div>
+            <input type="submit" id="deco" name="deco" value="deconnection"/>
+        <?php
+            }
+        ?>
+        </form>
+        <form method="POST" action="tchat.php">
+            <div class="div_t"><label>pseudo</label><input type="text" name="user" id="user" value="" /></div>
+            <div class="div_t"><textarea id="tchat" rows="20" cols="100"></textarea></div>
+            <div class="div_t"><textarea id="message" name="message" rows="3" cols="100" ></textarea></div>
+            <input type="submit" name="ok" id="ok" />
+        </form>
+    </body>
+</html>
