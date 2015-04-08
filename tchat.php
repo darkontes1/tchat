@@ -29,7 +29,6 @@
     $data->execute();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     //print_r($result);
-    //$toto[] = $result;
     echo json_encode($result);
     //echo json_encode($toto);
 ?>

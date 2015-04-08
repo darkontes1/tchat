@@ -1,3 +1,4 @@
+taille = 0;
 //Quand on click sur le bouton du formulaire "ok"
 $(document).on("click","#ok",function(e){
     //Supprime la fonction par défaut de l'event 
@@ -16,6 +17,7 @@ $(document).on("click","#ok",function(e){
             //alert(r);
             var html = "";
             var toto = eval(r);
+            taille = toto.length;
             //console.log(toto[1][7]['loginUser']);
             if(toto.length==0){
                 console.log("PAS DE MESSAGES DANS LA BASE !");
@@ -60,7 +62,24 @@ $(document).on("keypress","#message",function(e){
     }
 });
 
+function truc(){
+    $.ajax({
+        url:"tchat.php",
+        success:function(r){
+            var toto = eval(r);
+            truc();
+            if(toto.length > taille){
+                taille = toto.length;
+                $("#ok").trigger("click");
+            }
+        }
+    });
+}
+
+$(document).ready(truc);
+
+
 //Actualisation
-setInterval(function(){
+/*setInterval(function(){
     $("#ok").trigger("click");
-},1500);
+},1500);*/
