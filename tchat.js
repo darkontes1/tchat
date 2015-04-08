@@ -36,34 +36,31 @@ $(document).on("click","#ok",function(e){
 $(document).on("keypress","#tchat",function(e){
     e.preventDefault();
 });
-//Modifie la touche tab
+//Modifie la touche tab/shift+enter
 $(document).on("keydown","#message",function(e){
+    //Fait une tabulation au lieu de changer de focus
     if(e.which == 9){
         e.preventDefault();
         $("#message").val($("#message").val()+"\t");
+    }
+    //Fait une \n
+    if(e.shiftKey){
+        if(e.which == 13){
+            e.preventDefault();
+            $("#message").val($("#message").val()+"\n");
+        }
+    }
+});
+//Modifie la touche enter
+$(document).on("keypress","#message",function(e){
+    //Envoie le formulaire quand on appuie sur enter
+    if(e.which == 13){
+        e.preventDefault();
+        $("#ok").trigger("click");
     }
 });
 
 //Actualisation
 setInterval(function(){
-    $.ajax({
-        method:"POST",
-        url:"tchat.php",
-        success:function(r){
-            //alert(r);
-            var html = "";
-            var toto = eval(r);
-            //console.log(toto[1][7]['loginUser']);
-            if(toto.length==0){
-                console.log("PAS DE MESSAGES DANS LA BASE !");
-            }
-            else{
-                for(i=0;i<toto.length;i++){
-                    var d = new Date(toto[i]['date']);
-                    html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
-                }
-                $("#tchat").val(html);
-            }
-        }
-    });
+    $("#ok").trigger("click");
 },1500);
