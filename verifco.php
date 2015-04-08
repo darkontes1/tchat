@@ -17,10 +17,11 @@ session_start();
     }
     if(isset($_REQUEST['pseudo']) && isset($_REQUEST['pass']) && !empty($_REQUEST['pseudo']) && !empty($_REQUEST['pass'])){
         $pseudo = $_REQUEST['pseudo'];
+        $pass = $_REQUEST['pass'];
         $query = 'SELECT * FROM users WHERE pseudo = :pseudo AND password = :pass';
         $data = $db->prepare($query);
-        $data->bindValue('pseudo',$_REQUEST['pseudo'],PDO::PARAM_STR);
-        $data->bindValue('pass',$_REQUEST['pass'],PDO::PARAM_STR);
+        $data->bindValue('pseudo',$pseudo,PDO::PARAM_STR);
+        $data->bindValue('pass',$pass,PDO::PARAM_STR);
         $data->execute();
         $result = $data->fetchAll(PDO::FETCH_ASSOC);
         
