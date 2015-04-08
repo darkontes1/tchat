@@ -1,6 +1,27 @@
 //Variable pour l'actualisation plus bas (truc)
 taille = 0;
 
+//Actualisation grace à une fonction récursive
+function truc(){
+    $.ajax({
+        url:"tchat.php",
+        success:function(r){
+            var toto = eval(r);
+            if(toto.length > taille){
+                truc();
+                taille = toto.length;
+                $("#ok").trigger("click");
+            }
+        },
+    });
+    //setTimeout(function(){truc();});    
+}
+
+jQuery(window).load(function(){
+    $("#false").css("display","block");
+    $("#true").css("display","none");
+});
+
 //Quand on click sur le bouton de connexion
 $(document).on("click","#co",function(e){
     e.preventDefault();
@@ -15,14 +36,16 @@ $(document).on("click","#co",function(e){
         },
         success:function(r){
             var titi = eval(r);
+            alert(titi);
             if(titi == 1){
                 $("#false").css("display","none");
                 $("#true").css("display","block");
                 $("#ok").trigger("click");
+                $("#user").val(pseudo);
             }
             else{
                 console.log("Erreur ! Mauvaise connection");
-            }      
+            }
         }
     });
 });
@@ -114,19 +137,6 @@ $(document).on("keypress","#message",function(e){
         $("#ok").trigger("click");
     }
 });
-//Actualisation grace à une fonction récursive
-function truc(){
-    $.ajax({
-        url:"tchat.php",
-        success:function(r){
-            var toto = eval(r);
-            truc();
-            if(toto.length > taille){
-                taille = toto.length;
-                $("#ok").trigger("click");
-            }
-        }
-    });
-}
+
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
-$(document).ready(truc);
+$(document).ready(function(){truc();});

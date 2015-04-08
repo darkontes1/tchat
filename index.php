@@ -1,11 +1,13 @@
 <?php
 session_start();
+session_destroy();
+session_start();
     $meow = 'Meow_kitty_cat';
     if(empty($_SESSION)){
         $_SESSION['connect'] = FALSE;
         $_SESSION['pseudo'] = $meow;
     }
-    var_dump($_SESSION)
+    //var_dump($_SESSION)
 ?>
 <!DOCTYPE html>
 <html>
