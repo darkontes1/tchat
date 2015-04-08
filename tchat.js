@@ -29,6 +29,7 @@ $(document).on("click","#ok",function(e){
                 }
                 $("#tchat").val(html);
                 $("#message").val("");
+                $("#tchat").animate({scrollTop : $("#tchat").height()},1);
             }
         }
     });
@@ -61,7 +62,7 @@ $(document).on("keypress","#message",function(e){
         $("#ok").trigger("click");
     }
 });
-
+//Actualisation grace à une fonction récursive
 function truc(){
     $.ajax({
         url:"tchat.php",
@@ -75,9 +76,8 @@ function truc(){
         }
     });
 }
-
+//Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(truc);
-
 
 //Actualisation
 /*setInterval(function(){
