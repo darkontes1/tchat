@@ -7,9 +7,10 @@ function truc(){
         url:"tchat.php",
         success:function(r){
             var toto = eval(r);
+            //truc();
             if(toto.length > taille){
-                truc();
                 taille = toto.length;
+                //trigger magique qui enlève des lignes de code useless
                 $("#ok").trigger("click");
             }
         },
@@ -17,6 +18,7 @@ function truc(){
     //setTimeout(function(){truc();});    
 }
 
+//Affichage au début de l'irc
 jQuery(window).load(function(){
     $("#false").css("display","block");
     $("#true").css("display","none");
@@ -37,12 +39,14 @@ $(document).on("click","#co",function(e){
         success:function(r){
             var titi = eval(r);
             //alert(titi);
+            //Si l'utilisateur arrive à se co
             if(titi == 1){
                 $("#false").css("display","none");
                 $("#true").css("display","block");
                 $("#ok").trigger("click");
                 $("#user").val(pseudo);
             }
+            //Sinon on affiche une erreur dans la console
             else{
                 console.log("Erreur ! Mauvaise connection");
             }
@@ -59,7 +63,7 @@ $(document).on("click","#deco",function(e){
         data:{"action":"deco"},
         success:function(r){
             $("#false").css("display","block");
-            $("#true").css("display","none")
+            $("#true").css("display","none");
         }
     });
 });
@@ -83,16 +87,21 @@ $(document).on("click","#ok",function(e){
             var html = "";
             var toto = eval(r);
             taille = toto.length;
-            //console.log(toto[1][7]['loginUser']);
+            //Si il n'y a aucun message dans l'irc
             if(toto.length==0){
                 console.log("PAS DE MESSAGES DANS LA BASE !");
             }
+            //Sinon
             else{
+                //On stock dans html à travers la boucle l'affichage
                 for(i=0;i<toto.length;i++){
+                    //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
                     html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
                 }
+                //On l'ajoute dans le tchat
                 $("#tchat").val(html);
+                //On vide la boite de message de l'utilisateur
                 $("#message").val("");
                 //Permet de mettre le scroll en bas
                 $("#tchat").animate({scrollTop : $("#tchat").height()},1);
@@ -102,13 +111,15 @@ $(document).on("click","#ok",function(e){
 });
 
 //Empêcher l'utilisateur de remplir la textarea du tchat
-function cancel (e){
+function cancel(e){
     e.preventDefault();
 }
+
+//Pour que le clavier n'intervienne pas pour modifier le tchat
 $(document)
-    .on("keydown","#tchat", cancel)
-    .on("keypress","#tchat", cancel)
-    .on("keyup","#tchat", cancel);
+    .on("keydown","#tchat", cancel) //Quand on appuie
+    .on("keypress","#tchat", cancel)    //Entre l'appuie et le soulevement
+    .on("keyup","#tchat", cancel);  //Quand on retire
 $(document)
     .on("keydown","#user", cancel)
     .on("keypress","#user", cancel)
@@ -119,12 +130,14 @@ $(document).on("keydown","#message",function(e){
     //Fait une tabulation au lieu de changer de focus
     if(e.which == 9){
         e.preventDefault();
+        //Attribut une tabulation comme action de "tab"
         $("#message").val($("#message").val()+"\t");
     }
     //Fait une \n
     if(e.shiftKey){
         if(e.which == 13){
             e.preventDefault();
+            //Fait un retour chariot à la place de valider
             $("#message").val($("#message").val()+"\n");
         }
     }
@@ -134,6 +147,7 @@ $(document).on("keypress","#message",function(e){
     //Envoie le formulaire quand on appuie sur enter
     if(e.which == 13){
         e.preventDefault();
+        //Fait un envoi de trigger(click) sur "#ok" lorsque l'on appuie sur enter
         $("#ok").trigger("click");
     }
 });
