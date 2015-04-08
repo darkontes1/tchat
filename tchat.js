@@ -36,7 +36,7 @@ $(document).on("click","#co",function(e){
         },
         success:function(r){
             var titi = eval(r);
-            alert(titi);
+            //alert(titi);
             if(titi == 1){
                 $("#false").css("display","none");
                 $("#true").css("display","block");
