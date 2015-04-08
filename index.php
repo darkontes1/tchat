@@ -12,20 +12,20 @@ session_start();
     <head>
         <meta charset="utf-8" />
         <title>IRC</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="tchat.js"></script>
     </head>
     <body>
         <div id="false">
-            <form id="connex" method="POST" action="verifco.php" style="display: <?=$_SESSION['connect'] ? 'none' : 'block'?>;">
+            <form id="connex" method="POST" action="verifco.php">
                 <label>Pseudo : </label><input type="text" id="valueCo" name="valueCo" required><br/>
                 <label>Password : </label><input type="password" id="passCo" name="passCo" required><br/>
                 <input type="submit" id="co" name="co" value="connection"/>
             </form>
         </div>
             <div id="true">
-                <form id="aff" method="POST" action="tchat.php" style="display: <?=$_SESSION['connect'] ? 'block' : 'none' ?>;">
+                <form id="aff" method="POST" action="tchat.php">
                 
                 <div class="div_t">pseudo
                     <input type="text" name="user" id="user" value="<?php echo $_SESSION['pseudo'] ?>" />

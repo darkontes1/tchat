@@ -14,7 +14,15 @@ $(document).on("click","#co",function(e){
             "pass":pass
         },
         success:function(r){
-            $("#ok").trigger("click");
+            var titi = eval(r);
+            if(titi == 1){
+                $("#false").css("display","none");
+                $("#true").css("display","block");
+                $("#ok").trigger("click");
+            }
+            else{
+                console.log("Erreur ! Mauvaise connection");
+            }      
         }
     });
 });
@@ -25,7 +33,11 @@ $(document).on("click","#deco",function(e){
     $.ajax({
         method:"GET",
         url:"verifco.php",
-        data:{"action":"deco"}
+        data:{"action":"deco"},
+        success:function(r){
+            $("#false").css("display","block");
+            $("#true").css("display","none")
+        }
     });
 });
 
