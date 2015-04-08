@@ -29,6 +29,7 @@ $(document).on("click","#ok",function(e){
                 }
                 $("#tchat").val(html);
                 $("#message").val("");
+                //Permet de mettre le scroll en bas
                 $("#tchat").animate({scrollTop : $("#tchat").height()},1);
             }
         }

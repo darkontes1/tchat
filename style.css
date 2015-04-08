@@ -1,0 +1,17 @@
+/*Toujours faire ça ! Remet à zero pour tous les navigateurs*/
+body, div, h1,fieldset{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:none;
+}
+
+body{
+    margin: 0 auto;
+    width:960px;
+}
+
+#tchat{
+    border-radius: 10px 0 10px 0;
+    box-shadow: inset -2px -2px 5px #AAA;
+}
