@@ -151,27 +151,29 @@ $(document).on("click","#ok",function(e){
             //Sinon
             else{
                 //On stock dans html à travers la boucle l'affichage
-
+                var mot_f = "";
                 for(i=0;i<toto.length;i++){
-
                     var filtre=message.split(" ");
                     for (var x = 0; x < filtre.length; x++) {
                         for (var z = 0; z < mot.length; z++) {
                             if (filtre[x]==mot[z]) {
-                                var mot_f=filtre[x].replace(filtre[x],"***");
+                                mot_f+=filtre[x].replace(filtre[x],"***");
                             };
+                            else{
+                                mot_f+=filtre[x];
+                            }
                         };
                     };
-                    alert(mot_f);
+                    //alert(mot_f);
                     //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
                     //Si c'est l'utilisateur en cours : On change la couleur (fonctionne avec une div mais pas sinon)
                     if(toto[i]['user'] == userX){
-                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+mot_f+"\n";
                     }
                     //Sinon
                     else{
-                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+mot_f+"\n";
                         id = toto[i]['id'];
                     } 
                 }
