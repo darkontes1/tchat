@@ -19,6 +19,7 @@ session_start();
         <script type="text/javascript" src="tchat.js"></script>
     </head>
     <body>
+        <div id="error"></div>
         <div id="false">
             <form id="connex" method="POST" action="verifco.php">
                 <h3>CONNEXION</h3>
@@ -28,7 +29,7 @@ session_start();
             </form>
             <form id="inscription" method="POST" action="inscription.php">
                 <h3>INSCRIPTION</h3>
-                <label>Pseudo : </label><input class="in_" type="text" id="valueIns" name="valueInsc" required><br/>
+                <label>Pseudo : </label><input class="in_" type="text" id="valueIns" name="valueIns" required><br/>
                 <label>Password : </label><input class="in_" type="password" id="passIns" name="passIns" required><br/>
                 <label>Verif Password : </label><input class="in_" type="password" id="passVeri" name="passVeri" required><br/>
                 <input class="bout" type="submit" id="insc" name="insc" value="inscription"/>

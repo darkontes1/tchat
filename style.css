@@ -50,3 +50,7 @@ label{
 .toto{
     margin:2px 0 2px 0;
 }
+/*On prévient l'utilisateur des erreurs lors de l'inscription et de la connexion*/
+#error{
+    color:red;
+}

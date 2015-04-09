@@ -48,7 +48,9 @@ $(document).on("click","#co",function(e){
             }
             //Sinon on affiche une erreur dans la console
             else{
-                console.log("Erreur ! Mauvaise connection");
+                document.getElementById("error").innerHTML = "";
+                $("#error").append("Erreur lors de la connexion !");
+                $("#passCo").val("");
             }
         }
     });
@@ -64,6 +66,32 @@ $(document).on("click","#deco",function(e){
         success:function(r){
             $("#false").css("display","block");
             $("#true").css("display","none");
+        }
+    });
+});
+
+//Quand on click sur le bouton d'inscription
+$(document).on("click","#insc",function(e){
+    //Supprime la fonction par défaut de l'event 
+    e.preventDefault();
+    //Récupère la variable du message à ajouter
+    var valueIns = $("#valueIns").val();
+    var passIns = $("#passIns").val();
+    var passVeri = $("#passVeri").val();
+    //alert(message);
+    $.ajax({
+        method:"POST",
+        url:"inscription.php",
+        data:{"valueIns":valueIns,
+            "passIns":passIns,
+            "passVeri":passVeri
+        },
+        success:function(r){
+            document.getElementById("error").innerHTML = "";
+            $("#error").append("Les mots de passe sont différents !");
+            $("#valueIns").val("");
+            $("#passIns").val("");
+            $("#passVeri").val("");
         }
     });
 });
@@ -150,27 +178,6 @@ $(document).on("keypress","#message",function(e){
         //Fait un envoi de trigger(click) sur "#ok" lorsque l'on appuie sur enter
         $("#ok").trigger("click");
     }
-});
-
-$(document).on("click","#insc",function(e){
-    //Supprime la fonction par défaut de l'event 
-    e.preventDefault();
-    //Récupère la variable du message à ajouter
-    var valueIns = $("#valueIns").val();
-    var passIns = $("#passIns").val();
-    var passVeri=$("#passVeri").val();
-    //alert(message);
-    $.ajax({
-        method:"POST",
-        url:"inscription.php",
-        data:{"valueIns":valueIns,
-            "passIns":passIns,
-            "passVeri":passVeri
-        },
-        success:function(r){
-            alert(r);
-        }
-    });
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
