@@ -5,24 +5,33 @@ body, div, h1,fieldset{
     border:0;
     outline:none;
 }
-
+/*On centre le body sur la page*/
 body{
     margin: 0 auto;
     width:960px;
 }
-
+/*On modifie l'apparence du textarea contenant le tchat*/
 #tchat{
     border-radius: 10px 0 10px 0;
     box-shadow: inset -2px -2px 5px #AAA;
 }
-
-#input{
-    border-radius: 10px;
-    margin: 2px;
+/*On modifie tous les input text et password*/
+.in_{
+    border-radius: 5px;
+    margin: 2px 0 2px 0;
 }
-
+/*On modifie les titre de chaque partie*/
+p{
+    font-weight: bold;
+}
+/*On modifie tous les labels dans les formulaires pour de la mise en forme*/
 label{
     display: block;
     width: 125px;
     float: left;
+}
+/*On modifie l'apparence des boutons*/
+.bout{
+    width:100px;
+    height:30px;
 }
