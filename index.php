@@ -21,25 +21,25 @@ session_start();
     <body>
         <div id="error"></div>
         <div id="false">
+            <h3>CONNEXION</h3>
             <form id="connex" method="POST" action="verifco.php">
-                <h3>CONNEXION</h3>
                 <label>Pseudo : </label><input class="in_" type="text" id="valueCo" name="valueCo" required><br/>
                 <label>Password : </label><input class="in_" type="password" id="passCo" name="passCo" required><br/>
                 <input class="bout" type="submit" id="co" name="co" value="connection"/>
             </form>
+            <h3><a id="test" href="index.php">INSCRIPTION</a></h3>
             <form id="inscription" method="POST" action="inscription.php">
-                <h3>INSCRIPTION</h3>
+                
                 <label>Pseudo : </label><input class="in_" type="text" id="valueIns" name="valueIns" required><br/>
                 <label>Password : </label><input class="in_" type="password" id="passIns" name="passIns" required><br/>
                 <label>Verif Password : </label><input class="in_" type="password" id="passVeri" name="passVeri" required><br/>
                 <input class="bout" type="submit" id="insc" name="insc" value="inscription"/>
             </form>
         </div>
-        <button id="b_insc">inscription</button>
 
         <div id="true">
             <form id="aff" method="POST" action="tchat.php">
-                <div class="div_t toto">pseudo
+                <div class="div_t toto">pseudo :
                     <input class="in_" type="text" name="user" id="user" value="<?php echo $_SESSION['pseudo'] ?>" />
                     <button class="bout2 bout" id="deco" name="deco">deconnection</button>
                 </div>

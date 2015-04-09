@@ -1,6 +1,7 @@
 //Variable pour l'actualisation plus bas (truc)
 taille = 0;
 id = 0;
+on = false;
 
 //Actualisation grace à une fonction récursive
 function truc(){
@@ -43,6 +44,7 @@ $(document).on("click","#co",function(e){
             //alert(titi);
             //Si l'utilisateur arrive à se co
             if(titi == 1){
+                document.getElementById("error").innerHTML = "";
                 $("#false").css("display","none");
                 $("#true").css("display","block");
                 $("#ok").trigger("click");
@@ -196,6 +198,7 @@ $(document).on("click","li",function(){
 $(document).on("click","#tchat",function(){
 
 });
+<<<<<<< HEAD
 x=0;
 $(document).on("click","#b_insc",function(e){
     console.log(x);
@@ -207,6 +210,19 @@ $(document).on("click","#b_insc",function(e){
         $("#inscription").css("display","none");
         x=0;
     }
+=======
+
+$(document).on("click","#test",function(e){
+    e.preventDefault();
+    if(on == false){
+        $("#inscription").css("display","block");
+        on = true;
+    }else{
+        $("#inscription").css("display","none");
+        on = false;
+    }
+    
+>>>>>>> origin/master
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur

@@ -72,7 +72,10 @@ label{
 ul{
     list-style: none;
 }
-
+a{
+    text-decoration: none;
+    color:black;
+}
 li{
     height: 55px;
     width: 50px;
