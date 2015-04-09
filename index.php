@@ -44,6 +44,18 @@ session_start();
                 <div id="titi">
                     <div class="div_t"><textarea id="tchat" rows="20" cols="100"></textarea></div>
                     <div class="div_t"><textarea id="message" name="message" rows="3" cols="100" ></textarea></div>
+                    <div class="smiley">
+                        <ul>
+                            <li alt=":)"><img src="img/smile.gif" alt=":)" /></li>
+                            <li alt=":D"><img src="img/very-content.gif" alt=":D" /></li>
+                            <li alt=":boulet:"><img src="img/boulet.gif" alt=":boulet:" /></li>
+                            <li alt=":content:"><img src="img/content.gif" alt=":content:" /></li>
+                            <li alt=":merci:"><img src="img/message-merci.gif" alt=":merci:" /></li>
+                            <li alt=":zz:"><img src="img/message-zz.gif" alt=":zz:" /></li>
+                            <li alt=":+1:"><img src="img/plus-un.gif" alt=":+1:" /></li>
+                        </ul>   
+                    </div>
+                    <div class="useless"></div>
                     <input class="bout2 bout" type="submit" name="ok" id="ok" />
                 </div>
             </form>

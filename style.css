@@ -1,5 +1,5 @@
 /*Toujours faire ça ! Remet à zero pour tous les navigateurs*/
-body, div, h1,fieldset{
+body, div, h1,fieldset,ul{
     margin:0;
     padding:0;
     border:0;
@@ -40,6 +40,10 @@ label{
 .bout2{
     float:none;
 }
+
+.useless{
+    clear: both;
+}
 /*Modifie la taille des form page accueil*/
 #connex, #inscription{
     width:300px;
@@ -53,4 +57,17 @@ label{
 /*On prévient l'utilisateur des erreurs lors de l'inscription et de la connexion*/
 #error{
     color:red;
+}
+/*.smiley{
+    border: 1px solid grey;
+}*/
+
+ul{
+    list-style: none;
+}
+
+li{
+    height: 55px;
+    width: 50px;
+    float: left;
 }

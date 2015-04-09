@@ -1,5 +1,6 @@
 //Variable pour l'actualisation plus bas (truc)
 taille = 0;
+id = 0;
 
 //Actualisation grace à une fonction récursive
 function truc(){
@@ -108,7 +109,8 @@ $(document).on("click","#ok",function(e){
         method:"POST",
         url:"tchat.php",
         data:{"message":message,
-            "user":user
+            "user":user,
+            "id":id
         },
         success:function(r){
             //alert(r);
@@ -117,18 +119,22 @@ $(document).on("click","#ok",function(e){
             taille = toto.length;
             //Si il n'y a aucun message dans l'irc
             if(toto.length==0){
+                id = 0;
                 console.log("PAS DE MESSAGES DANS LA BASE !");
             }
             //Sinon
             else{
                 //On stock dans html à travers la boucle l'affichage
+
                 for(i=0;i<toto.length;i++){
                     //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
                     html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                    id = toto[i]['id'];
                 }
                 //On l'ajoute dans le tchat
                 $("#tchat").val(html);
+                //$("#tchat").append(html);
                 //On vide la boite de message de l'utilisateur
                 $("#message").val("");
                 //Permet de mettre le scroll en bas
@@ -178,6 +184,16 @@ $(document).on("keypress","#message",function(e){
         //Fait un envoi de trigger(click) sur "#ok" lorsque l'on appuie sur enter
         $("#ok").trigger("click");
     }
+});
+
+//Quand on click sur l'un des smiley
+$(document).on("click","li",function(){
+    $("#message").val($("#message").val()+$(this).attr("alt"));
+});
+
+//
+$(document).on("click","#tchat",function(){
+
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
