@@ -21,9 +21,16 @@ session_start();
     <body>
         <div id="false">
             <form id="connex" method="POST" action="verifco.php">
+                <p>CONNEXION</p>
                 <label>Pseudo : </label><input type="text" id="valueCo" name="valueCo" required><br/>
                 <label>Password : </label><input type="password" id="passCo" name="passCo" required><br/>
                 <input type="submit" id="co" name="co" value="connection"/>
+            </form>
+            <form id="insc" method="POST" action="inscription.php">
+                <p>INSCRIPTION</p>
+                <label>Pseudo : </label><input type="text" id="valueIns" name="valueInsc" required><br/>
+                <label>Password : </label><input type="password" id="passIns" name="passIns" required><br/>
+                <label>Verif Password : </label><input type="password" id="passVeri" name="passVeri" required><br/>
             </form>
         </div>
             <div id="true">

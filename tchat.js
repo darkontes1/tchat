@@ -153,4 +153,4 @@ $(document).on("keypress","#message",function(e){
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
-$(document).ready(function(){truc();});
+$(document).ready(function(){setTimeout(truc(),3000)});
