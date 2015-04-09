@@ -158,7 +158,7 @@ $(document).on("click","#ok",function(e){
                         for (var z = 0; z < mot.length; z++) {
                             if (filtre[x]==mot[z]) {
                                 mot_f+=filtre[x].replace(filtre[x],"***");
-                            };
+                            }
                             else{
                                 mot_f+=filtre[x];
                             }
