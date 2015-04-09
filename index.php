@@ -39,7 +39,7 @@ session_start();
 
         <div id="true">
             <form id="aff" method="POST" action="tchat.php">
-                <div class="div_t toto">pseudo
+                <div class="div_t toto">pseudo :
                     <input class="in_" type="text" name="user" id="user" value="<?php echo $_SESSION['pseudo'] ?>" />
                     <button class="bout2 bout" id="deco" name="deco">deconnection</button>
                 </div>

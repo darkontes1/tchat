@@ -43,6 +43,7 @@ $(document).on("click","#co",function(e){
             //alert(titi);
             //Si l'utilisateur arrive à se co
             if(titi == 1){
+                document.getElementById("error").innerHTML = "";
                 $("#false").css("display","none");
                 $("#true").css("display","block");
                 $("#ok").trigger("click");
