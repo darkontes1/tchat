@@ -142,6 +142,7 @@ $(document).on("click","#ok",function(e){
             var toto = eval(r);
             //var motInterdit = ["con","salaud","abruti","batard","biatch","imbécile"];
             taille = toto.length;
+            var mot=["test","zut","flut"];
             //Si il n'y a aucun message dans l'irc
             if(toto.length==0){
                 id = 0;
@@ -152,6 +153,16 @@ $(document).on("click","#ok",function(e){
                 //On stock dans html à travers la boucle l'affichage
 
                 for(i=0;i<toto.length;i++){
+
+                    var filtre=message.split(" ");
+                    for (var x = 0; x < filtre.length; x++) {
+                        for (var z = 0; z < mot.length; z++) {
+                            if (filtre[x]==mot[z]) {
+                                var mot_f=filtre[x].replace(filtre[x],"***");
+                            };
+                        };
+                    };
+                    alert(mot_f);
                     //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
                     //Si c'est l'utilisateur en cours : On change la couleur (fonctionne avec une div mais pas sinon)
