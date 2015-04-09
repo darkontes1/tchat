@@ -23,7 +23,7 @@ function truc(){
 jQuery(window).load(function(){
     $("#false").css("display","block");
     $("#true").css("display","none");
-    $("#inscription").css("display","none");
+    /*$("#inscription").css("display","none");*/
 });
 
 //Quand on click sur le bouton de connexion
@@ -198,10 +198,10 @@ $(document).on("click","#tchat",function(){
 
 });
 
-$(document).on("click","#b_insc",function(e){
+/*$(document).on("click","#b_insc",function(e){
+    e.preventDefault();
     $("#inscription").css("display","block");
-
-});
+});*/
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(function(){truc();});

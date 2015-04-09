@@ -35,7 +35,7 @@ session_start();
                 <input class="bout" type="submit" id="insc" name="insc" value="inscription"/>
             </form>
         </div>
-        <button id="b_insc">inscription</button>
+        <!--<button id="b_insc">inscription</button>-->
 
         <div id="true">
             <form id="aff" method="POST" action="tchat.php">
