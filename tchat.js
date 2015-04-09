@@ -7,7 +7,7 @@ function truc(){
         url:"tchat.php",
         success:function(r){
             var toto = eval(r);
-            //truc();
+            setTimeout(function(){truc();},500);  
             if(toto.length > taille){
                 taille = toto.length;
                 //trigger magique qui enlève des lignes de code useless
@@ -15,7 +15,7 @@ function truc(){
             }
         },
     });
-    //setTimeout(function(){truc();});    
+      
 }
 
 //Affichage au début de l'irc
@@ -153,4 +153,4 @@ $(document).on("keypress","#message",function(e){
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
-$(document).ready(function(){setTimeout(truc(),3000)});
+$(document).ready(function(){truc();});
