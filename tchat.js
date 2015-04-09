@@ -100,10 +100,13 @@ $(document).on("click","#insc",function(e){
         },
         success:function(r){
             document.getElementById("error").innerHTML = "";
-            $("#error").append("Les mots de passe sont différents !");
+            $("#error").append(r);
             $("#valueIns").val("");
             $("#passIns").val("");
             $("#passVeri").val("");
+            /*$("#co").trigger("click",function(){
+
+            });*/
         }
     });
 });
