@@ -166,6 +166,8 @@ $(document).on("click","#insc",function(e){
             "passIns":passIns
         },
         success:function(r){}
+    });
+});
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(function(){truc();});

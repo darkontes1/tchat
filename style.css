@@ -16,6 +16,11 @@ body{
     box-shadow: inset -2px -2px 5px #AAA;
 }
 
+#input{
+    border-radius: 10px;
+    margin: 2px;
+}
+
 label{
     display: block;
     width: 125px;
