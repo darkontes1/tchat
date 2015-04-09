@@ -161,7 +161,7 @@ $(document).on("click","#insc",function(e){
     var passVeri=$("#passVeri").val();
     //alert(message);
     $.ajax({
-        method:"get",
+        method:"POST",
         url:"inscription.php",
         data:{"valueIns":valueIns,
             "passIns":passIns,
