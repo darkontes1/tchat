@@ -2,6 +2,7 @@
 taille = 0;
 id = 0;
 on = false;
+userX = "";
 
 //Actualisation grace à une fonction récursive
 function truc(){
@@ -20,7 +21,7 @@ function truc(){
       
 }
 
-//Affichage au début de l'irc
+//Affichage au début de l'irc (juste la connexion)
 jQuery(window).load(function(){
     $("#false").css("display","block");
     $("#true").css("display","none");
@@ -31,7 +32,7 @@ jQuery(window).load(function(){
 $(document).on("click","#co",function(e){
     e.preventDefault();
     //Récupère la variable du message à ajouter
-    var pseudo = $("#valueCo").val();
+    var pseudo = userX = $("#valueCo").val();
     var pass = $("#passCo").val();
     $.ajax({
         method:"POST",
@@ -70,6 +71,13 @@ $(document).on("click","#deco",function(e){
         success:function(r){
             $("#false").css("display","block");
             $("#true").css("display","none");
+
+            $("#valueIns").val("");
+            $("#passIns").val("");
+            $("#passVeri").val("");
+            
+            $("#valueCo").val("");
+            $("#passCo").val("");
         }
     });
 });
@@ -132,8 +140,15 @@ $(document).on("click","#ok",function(e){
                 for(i=0;i<toto.length;i++){
                     //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
-                    html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
-                    id = toto[i]['id'];
+                    //Si c'est l'utilisateur en cours : On change la couleur (fonctionne avec une div mais pas sinon)
+                    if(toto[i]['user'] == userX){
+                        html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                    }
+                    //Sinon
+                    else{
+                        html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                        id = toto[i]['id'];
+                    } 
                 }
                 //On l'ajoute dans le tchat
                 $("#tchat").val(html);
