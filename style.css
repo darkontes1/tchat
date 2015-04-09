@@ -7,16 +7,23 @@ body, div, h1,fieldset,ul{
 }
 /*On centre le body sur la page*/
 body{
+    background-color: AliceBlue;
     margin: 0 auto;
     width:960px;
 }
 /*On modifie l'apparence du textarea contenant le tchat*/
 #tchat{
+    background-color: Azure;
     border-radius: 10px 0 10px 0;
-    box-shadow: inset -2px -2px 5px #AAA;
+    /*box-shadow: inset -2px -2px 5px #AAA;*/
 }
+#message{
+    background-color: Azure;
+}
+
 /*On modifie tous les input text et password*/
 .in_{
+    background-color: Azure;
     border-radius: 5px;
     margin: 2px 0 2px 0;
 }

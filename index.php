@@ -42,8 +42,8 @@ session_start();
                     <button class="bout2 bout" id="deco" name="deco">deconnection</button>
                 </div>
                 <div id="titi">
-                    <div class="div_t"><textarea id="tchat" rows="20" cols="100"></textarea></div>
-                    <div class="div_t"><textarea id="message" name="message" rows="3" cols="100" ></textarea></div>
+                    <div class="div_t"><textarea id="tchat" rows="20" cols="133"></textarea></div>
+                    <div class="div_t"><textarea id="message" name="message" rows="3" cols="133" ></textarea></div>
                     <div class="smiley">
                         <ul>
                             <li alt=":)"><img src="img/smile.gif" alt=":)" /></li>
