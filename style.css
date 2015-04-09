@@ -33,5 +33,22 @@ label{
 /*On modifie l'apparence des boutons*/
 .bout{
     width:100px;
-    height:30px;
+    height:25px;
+    float: right;
+}
+
+.bout2{
+    float:none;
+}
+
+#connex, #inscription{
+    width:300px;
+}
+
+#titi{
+    margin:5px 0 2px 0;
+}
+
+.toto{
+    margin:2px 0 2px 0;
 }
