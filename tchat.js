@@ -29,11 +29,17 @@ jQuery(window).load(function(){
 });
 
 //Quand on click sur le bouton de connexion
-$(document).on("click","#co",function(e){
+$(document).on("click","#co",function(e,pseudo,pass){
     e.preventDefault();
     //Récupère la variable du message à ajouter
-    var pseudo = userX = $("#valueCo").val();
-    var pass = $("#passCo").val();
+    if($("#valueCo").val() != "" && $("#passCo").val() != 0){
+        pseudo = userX = $("#valueCo").val();
+        pass = $("#passCo").val();
+    }
+    else{
+        pseudo = $("#valueIns").val();
+        pass = $("#passIns").val();
+    }
     $.ajax({
         method:"POST",
         url:"verifco.php",
@@ -100,14 +106,18 @@ $(document).on("click","#insc",function(e){
         },
         success:function(r){
             document.getElementById("error").innerHTML = "";
-            $("#error").append(r);
+            if(r == ""){
+                $("#co").trigger("click",{
+                    pseudo:valueIns,
+                    pass:passIns
+                });
+            }
+            else{
+                $("#error").append(r);
+            }
             $("#valueIns").val("");
             $("#passIns").val("");
             $("#passVeri").val("");
-            /*$("#co").trigger("click",{
-                valueCo:valueIns,
-                passCo:passIns
-            });*/
         }
     });
 });
