@@ -23,6 +23,7 @@ function truc(){
 jQuery(window).load(function(){
     $("#false").css("display","block");
     $("#true").css("display","none");
+    $("#inscription").css("display","none");
 });
 
 //Quand on click sur le bouton de connexion
