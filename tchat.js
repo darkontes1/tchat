@@ -1,6 +1,7 @@
 //Variable pour l'actualisation plus bas (truc)
 taille = 0;
 id = 0;
+on = false;
 
 //Actualisation grace à une fonction récursive
 function truc(){
@@ -23,7 +24,7 @@ function truc(){
 jQuery(window).load(function(){
     $("#false").css("display","block");
     $("#true").css("display","none");
-    /*$("#inscription").css("display","none");*/
+    $("#inscription").css("display","none");
 });
 
 //Quand on click sur le bouton de connexion
@@ -198,10 +199,17 @@ $(document).on("click","#tchat",function(){
 
 });
 
-/*$(document).on("click","#b_insc",function(e){
+$(document).on("click","#test",function(e){
     e.preventDefault();
-    $("#inscription").css("display","block");
-});*/
+    if(on == false){
+        $("#inscription").css("display","block");
+        on = true;
+    }else{
+        $("#inscription").css("display","none");
+        on = false;
+    }
+    
+});
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(function(){truc();});
