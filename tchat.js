@@ -18,7 +18,6 @@ function truc(){
             }
         },
     });
-      
 }
 
 //Affichage au début de l'irc (juste la connexion)
@@ -141,6 +140,7 @@ $(document).on("click","#ok",function(e){
             //alert(r);
             var html = "";
             var toto = eval(r);
+            //var motInterdit = ["con","salaud","abruti","batard","biatch","imbécile"];
             taille = toto.length;
             //Si il n'y a aucun message dans l'irc
             if(toto.length==0){
@@ -156,11 +156,11 @@ $(document).on("click","#ok",function(e){
                     var d = new Date(toto[i]['date']);
                     //Si c'est l'utilisateur en cours : On change la couleur (fonctionne avec une div mais pas sinon)
                     if(toto[i]['user'] == userX){
-                        html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
                     }
                     //Sinon
                     else{
-                        html += "["+(d.getHours())+":"+(d.getMinutes())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
+                        html += "["+(d.getHours().toString())+":"+(d.getMinutes().toString())+"] "+toto[i]['user']+" : "+toto[i]['message']+"\n";
                         id = toto[i]['id'];
                     } 
                 }
