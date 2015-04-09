@@ -36,19 +36,17 @@ label{
     height:25px;
     float: right;
 }
-
+/*Empêche les boutons lorsque l'on est co d'être mal placer*/
 .bout2{
     float:none;
 }
-
+/*Modifie la taille des form page accueil*/
 #connex, #inscription{
     width:300px;
 }
-
 #titi{
     margin:5px 0 2px 0;
 }
-
 .toto{
     margin:2px 0 2px 0;
 }
