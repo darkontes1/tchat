@@ -198,19 +198,6 @@ $(document).on("click","li",function(){
 $(document).on("click","#tchat",function(){
 
 });
-<<<<<<< HEAD
-x=0;
-$(document).on("click","#b_insc",function(e){
-    console.log(x);
-    if(x==0){
-    $("#inscription").css("display","block");
-    alert(x);
-    x=1;
-    }else{
-        $("#inscription").css("display","none");
-        x=0;
-    }
-=======
 
 $(document).on("click","#test",function(e){
     e.preventDefault();
@@ -221,8 +208,6 @@ $(document).on("click","#test",function(e){
         $("#inscription").css("display","none");
         on = false;
     }
-    
->>>>>>> origin/master
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
