@@ -158,14 +158,18 @@ $(document).on("click","#insc",function(e){
     //Récupère la variable du message à ajouter
     var valueIns = $("#valueIns").val();
     var passIns = $("#passIns").val();
+    var passVeri=$("#passVeri").val();
     //alert(message);
     $.ajax({
-        method:"POST",
+        method:"get",
         url:"inscription.php",
         data:{"valueIns":valueIns,
-            "passIns":passIns
+            "passIns":passIns,
+            "passVeri":passVeri
         },
-        success:function(r){}
+        success:function(r){
+            alert(r);
+        }
     });
 });
 
