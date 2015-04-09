@@ -104,8 +104,9 @@ $(document).on("click","#insc",function(e){
             $("#valueIns").val("");
             $("#passIns").val("");
             $("#passVeri").val("");
-            /*$("#co").trigger("click",function(){
-
+            /*$("#co").trigger("click",{
+                valueCo:valueIns,
+                passCo:passIns
             });*/
         }
     });
