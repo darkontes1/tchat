@@ -31,6 +31,7 @@ session_start();
                 <label>Pseudo : </label><input type="text" id="valueIns" name="valueInsc" required><br/>
                 <label>Password : </label><input type="password" id="passIns" name="passIns" required><br/>
                 <label>Verif Password : </label><input type="password" id="passVeri" name="passVeri" required><br/>
+                <input type="submit" id="insc" name="insc" value="insc"/>
             </form>
         </div>
             <div id="true">

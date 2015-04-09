@@ -152,5 +152,20 @@ $(document).on("keypress","#message",function(e){
     }
 });
 
+$(document).on("click","#insc",function(e){
+    //Supprime la fonction par défaut de l'event 
+    e.preventDefault();
+    //Récupère la variable du message à ajouter
+    var valueIns = $("#valueIns").val();
+    var passIns = $("#passIns").val();
+    //alert(message);
+    $.ajax({
+        method:"POST",
+        url:"inscription.php",
+        data:{"valueIns":valueIns,
+            "passIns":passIns
+        },
+        success:function(r){}
+
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(function(){truc();});
