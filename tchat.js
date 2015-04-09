@@ -196,10 +196,17 @@ $(document).on("click","li",function(){
 $(document).on("click","#tchat",function(){
 
 });
-
+x=0;
 $(document).on("click","#b_insc",function(e){
+    console.log(x);
+    if(x==0){
     $("#inscription").css("display","block");
-
+    alert(x);
+    x=1;
+    }else{
+        $("#inscription").css("display","none");
+        x=0;
+    }
 });
 
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
