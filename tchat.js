@@ -196,5 +196,10 @@ $(document).on("click","#tchat",function(){
 
 });
 
+$(document).on("click","#b_insc",function(e){
+    $("#inscription").css("display","block");
+
+});
+
 //Fait uniquement quand il y a une nouvelle entrée sur le serveur
 $(document).ready(function(){truc();});
