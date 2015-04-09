@@ -154,7 +154,7 @@ $(document).on("click","#ok",function(e){
                     var chaine = toto[i]['message'];
                     for(x=0;x<motInterdit.length;x++){
                         chaine = chaine.replace(motInterdit[x],"****");
-                        console.log(chaine);
+                        //console.log(chaine);
                     }
                     //On initialise une date pour afficher : [date] pseudo : message
                     var d = new Date(toto[i]['date']);
